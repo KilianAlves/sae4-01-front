@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
 import { fetchAllQuestions } from "../services/api/api";
 import QuestionItem from "./QuestionItem";
+import Loading from "./Loading";
 
 export default function QuestionsList() {
 
@@ -16,7 +17,7 @@ export default function QuestionsList() {
 
     //si pas de donnée ou chargement
     if (questionsList === null) {
-        return "chargement des données ...";
+        return <Loading/>;
     }
 
     return (
