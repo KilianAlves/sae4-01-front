@@ -1,42 +1,106 @@
+/* style du root */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+
+
+/*Style pour la page questions*/
+
+/* style de chaque question */
+.Question {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 600px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* style titre chaque question */
+.Question h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* style description chaque question */
+.Question div {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
-.card {
-  padding: 2em;
+/* style date de chaque question */
+.Question p {
+  font-size: 14px;
+  color: #999999;
+  text-align: right;
 }
 
-.read-the-docs {
-  color: #888;
+
+
+
+
+
+
+
+
+/*Style pour page Question Reponse*/
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* style de chaque question et réponse */
+.QuestionReponse, .Reponse {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 600px;
+}
+
+/* style titre question */
+.QuestionReponse h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.QuestionReponse p:first-child {
+  font-size: medium;
+  color: black;
+  text-align: left;
+}
+
+/* style date chaque question et réponse */
+.QuestionReponse p:last-child, .Reponse p:last-child {
+  font-size: 14px;
+  color: #999999;
+  text-align: right;
+}
+
+/* style description question */
+.QuestionReponse div {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
