@@ -1,7 +1,7 @@
-export const BASE_URL = "https://127.0.0.1:8000/api";
+export const BASE_URL = "https://127.0.0.1:8000";
 
 export function fetchAllQuestions() {
-  return fetch(`${BASE_URL}/questions`).then((response) => response.json());
+  return fetch(`${BASE_URL}/api/questions`).then((response) => response.json());
 }
 
 export function getUserInfo(user) {
@@ -11,13 +11,13 @@ export function getUserInfo(user) {
 }
 
 export function fetchReponsesByQuestionId(questionId) {
-  return fetch(`${BASE_URL}/reponses?question=${questionId}`).then((response) =>
+  return fetch(`${BASE_URL}/api/reponses?question=${questionId}`).then((response) =>
     response.json()
   );
 }
 
 export function fetchQuestionById(id) {
-  return fetch(`${BASE_URL}/questions/${id}`).then((response) =>
+  return fetch(`${BASE_URL}/api/questions/${id}`).then((response) =>
     response.json()
   );
 }
