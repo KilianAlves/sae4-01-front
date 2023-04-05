@@ -31,3 +31,7 @@ export function getMe() {
       return response.json();
     });
 }
+
+export function loginUrl() {
+  return `${BASE_URL}bookmarks/login?redirect=${window.location}`;
+}
