@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMe } from '../../services/api/bookmarks';
+import { getMe } from '../../services/api/api';
 
 import { UserContext } from '.';
 
