@@ -33,9 +33,9 @@ export function getMe() {
 }
 
 export function loginUrl() {
-  return `${BASE_URL}bookmarks/login?redirect=${window.location}`;
+  return `${BASE_URL}/login?redirect=${window.location}`;
 }
 
 export function logoutUrl() {
-  return `${BASE_URL}bookmarks/logout`;
+  return `${BASE_URL}/logout`;
 }
