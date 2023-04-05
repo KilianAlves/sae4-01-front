@@ -21,3 +21,13 @@ export function fetchQuestionById(id) {
     response.json()
   );
 }
+
+export function getMe() {
+  return fetch(`${BASE_URL}/api/me`, { credentials: 'include' })
+    .then((response) => {
+      if (response.status === 401) {
+        return Promise.resolve(null);
+      }
+      return response.json();
+    });
+}
