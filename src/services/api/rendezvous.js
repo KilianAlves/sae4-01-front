@@ -1,7 +1,7 @@
 export const BASE_URL = "http://127.0.0.1:8000/api/rendez_vouse";
 
-export function getRdvSemaine(semaine) {
-    return fetch(`${BASE_URL}/semaine`).then((response) => response.json());
+export function getRdvSemaine(semaine, veterinaireId) {
+    return fetch(`${BASE_URL}/semaine/${veterinaireId}?date=2023-06-05`).then((response) => response.json());
 }
 
 export function postRdv(date, horaire, veterinaire) {
@@ -13,6 +13,7 @@ export function postRdv(date, horaire, veterinaire) {
         estUrgent: 1,
         commentaireVeto: " ",
         estDomicile: 1,
+        client: "api/clients/1",
     }
     return fetch(`${BASE_URL}s`, {
         headers: {
