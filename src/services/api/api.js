@@ -1,7 +1,7 @@
-export const BASE_URL = "https://127.0.0.1:8000/api";
+export const BASE_URL = "https://127.0.0.1:8000";
 
 export function fetchAllQuestions() {
-  return fetch(`${BASE_URL}/questions`).then((response) => response.json());
+  return fetch(`${BASE_URL}/api/questions`).then((response) => response.json());
 }
 
 export function getUserInfo(user) {
@@ -11,13 +11,31 @@ export function getUserInfo(user) {
 }
 
 export function fetchReponsesByQuestionId(questionId) {
-  return fetch(`${BASE_URL}/reponses?question=${questionId}`).then((response) =>
+  return fetch(`${BASE_URL}/api/reponses?question=${questionId}`).then((response) =>
     response.json()
   );
 }
 
 export function fetchQuestionById(id) {
-  return fetch(`${BASE_URL}/questions/${id}`).then((response) =>
+  return fetch(`${BASE_URL}/api/questions/${id}`).then((response) =>
     response.json()
   );
+}
+
+export function getMe() {
+  return fetch(`${BASE_URL}/api/me`, { credentials: 'include' })
+    .then((response) => {
+      if (response.status === 401) {
+        return Promise.resolve(null);
+      }
+      return response.json();
+    });
+}
+
+export function loginUrl() {
+  return `${BASE_URL}/login?redirect=${window.location}`;
+}
+
+export function logoutUrl() {
+  return `${BASE_URL}/logout`;
 }
