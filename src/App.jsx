@@ -7,6 +7,9 @@ import QuestionForm from "./components/QuestionForm";
 import ReponseForm from "./components/ReponseForm";
 import { Router, Route } from "wouter";
 import { default as UserProvider } from './contexts/user/Provider';
+import Planning from "./components/RendezVous/Planning.jsx";
+import Accueil from "./components/Accueil/Accueil.jsx";
+import VeterinaireList from "./components/RendezVous/VeterinaireList.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,10 +18,11 @@ function App() {
     <UserProvider>
       <UserButton/>
       <Router>
+        <Route path="/" component={Accueil} />
         <Route path="/questions/" component={QuestionsList} />
         <Route path="/questions/:id" component={QuestionEtReponses} />
-        <Route path="/create/question" component={QuestionForm} />
-        <Route path="/create/reponse/:id" component={ReponseForm} />
+        <Route path="/rendezvous" component={VeterinaireList} />
+        <Route path="/rendezvous/:id" component={Planning} />
       </Router>
     </UserProvider>
   );
