@@ -21,6 +21,8 @@ function App() {
         <Route path="/" component={Accueil} />
         <Route path="/questions/" component={QuestionsList} />
         <Route path="/questions/:id" component={QuestionEtReponses} />
+        <Route path="/create/question" component={QuestionForm} />
+        <Route path="/create/reponse/:id" component={ReponseForm} />
         <Route path="/rendezvous" component={VeterinaireList} />
         <Route path="/rendezvous/:id" component={Planning} />
       </Router>
