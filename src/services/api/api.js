@@ -39,3 +39,27 @@ export function loginUrl() {
 export function logoutUrl() {
   return `${BASE_URL}/logout`;
 }
+
+export function postQuestion(data) {
+  return fetch(`${BASE_URL}/api/questions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    credentials: 'include',
+  })
+    .then((response) => response.json());
+}
+
+export function postReponse(data) {
+  return fetch(`${BASE_URL}/api/reponses`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    credentials: 'include',
+  })
+    .then((response) => response.json());
+}
