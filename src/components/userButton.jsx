@@ -18,7 +18,7 @@ export default function UserButton() {
         }
       };
 
-      return (
+      return (<div>
         <button type="button" onClick={processBtn}>
           {isLoggedOut
             && (
@@ -29,6 +29,6 @@ export default function UserButton() {
           {isLoggedIn && (
             <span>Déconnexion</span>
           )}
-        </button>
+        </button></div>
       );
 }
