@@ -4,8 +4,14 @@ import {getRdvSemaine} from "../../services/api/rendezvous.js";
 import {useEffect, useState} from "react";
 import Loading from "../Loading.jsx";
 import {useRoute} from "wouter";
+import { Toast } from 'primereact/toast';
+import {ConfirmDialog} from "primereact/confirmdialog";
 
 export default function Planning() {
+    const toast = useRef(null);
+    const success = () => {
+        toast.current.show({ severity: 'info', summary: 'Confirmé', detail: 'Rendez-vous accepté', life: 3000 });
+    }
     const [_, params] = useRoute("/rendezvous/:id");
     const { id } = params;
     const [rdvList, setRdvList] = useState();
@@ -24,6 +30,6 @@ export default function Planning() {
     if (!rdvList) {
         return <Loading />;
     }
-    return rdvList
+    return (<div className={"flex"}><Toast ref={toast} /><ConfirmDialog />{rdvList}</div>)
 
 }
