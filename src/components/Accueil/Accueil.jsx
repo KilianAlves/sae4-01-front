@@ -83,7 +83,7 @@ export default function Accueil() {
             </a>
 
             {/* Card 3 */}
-            <a href="/forum">
+            <a href="/questions/">
               <div
                 class="h-[375px] w-[300px] xl:h-[550px] xl:w-[400px] bg-[#FFFCF5] rounded-2xl shadow-md shadow-gray-400 p-1 hover:translate-y-1 hover:translate-x-1 hover:transition hover:duration-300">
                 <div class="flex flex-col items-center h-full w-full">
