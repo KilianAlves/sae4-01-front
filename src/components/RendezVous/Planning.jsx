@@ -16,6 +16,7 @@ export default function Planning() {
     const { id } = params;
     const [rdvList, setRdvList] = useState();
     const [rdvChange, setRdvChange] = useState(0);
+    const [dateRdv, setDateRdv] = useState(new Date())
     const createRDV = (date, creneau,veterinaire) => {
         postRdv(date, creneau,veterinaire).then((rdv) => {
             setRdvChange(rdvChange + 1);
@@ -23,7 +24,7 @@ export default function Planning() {
         })
     }
     useEffect(() => {
-        getRdvSemaine("", id).then((data) => {
+        getRdvSemaine(dateRdv, id).then((data) => {
             setRdvList(Object.entries(data).map(([key, creneaux]) => (
                 <div key={key}>
                     <div>{ key }</div>
@@ -31,11 +32,18 @@ export default function Planning() {
                 </div>
             )))
         });
-    }, [rdvChange]);
+    }, [rdvChange, dateRdv]);
 
     if (!rdvList) {
         return <Loading />;
     }
-    return (<div className={"flex"}><Toast ref={toast} /><ConfirmDialog />{rdvList}</div>)
+    return (
+      <div className={"flex flex-column"}><Toast ref={toast} /><ConfirmDialog />
+          <div className={"flex justify-content-between"}>
+              <button onClick={() => {setDateRdv(new Date(dateRdv.getTime()-(7*24*60*60*1000)))}}><i className="pi pi-backward"></i></button>
+              <button onClick={() => setDateRdv(new Date(dateRdv.getTime()+(7*24*60*60*1000)))}><i className="pi pi-forward"></i></button>
+          </div>
+          <div className={"flex"}>{rdvList}</div></div>
+          )
 
 }

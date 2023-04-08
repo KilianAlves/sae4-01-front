@@ -12,7 +12,7 @@ export function getMyRdv() {
 }
 
 export function getRdvSemaine(semaine, veterinaireId) {
-  return fetch(`${BASE_URL}/semaine/${veterinaireId}?date=2023-06-05`, {
+  return fetch(`${BASE_URL}/semaine/${veterinaireId}?date=${semaine.toISOString()}`, {
     credentials: "include",
   }).then((response) => {
     if (response.ok) {
