@@ -39,3 +39,15 @@ export function postRdv(date, horaire, veterinaire) {
     body: JSON.stringify(body),
   }).then((response) => response.json());
 }
+
+export function deleteMyRdv(id) {
+  return fetch(`${BASE_URL}s/${id}`, {
+    credentials: "include",
+    method: "DELETE",
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw Error(response.statusText);
+  });
+}
