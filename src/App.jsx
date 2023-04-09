@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Router, Route } from "wouter";
+import {Router, Route, useLocation} from "wouter";
 import QuestionsList from "./components/QuestionsList";
 import UserButton from "./components/userButton";
 import QuestionEtReponses from "./components/QuestionEtReponses";
@@ -18,40 +18,30 @@ import RdvButton from "./components/rdvButton";
 import MyRdv from "./components/MyRdv/MyRdv.jsx";
 
 function App() {
+  const [location, setLocation] = useLocation();
+
   const items = [
     {
-      label: 'File',
-      icon: 'pi pi-fw pi-file',
-      items: [
-        {
-          label: 'New',
-          icon: 'pi pi-fw pi-plus',
-          items: [
-            {
-              label: 'Bookmark',
-              icon: 'pi pi-fw pi-bookmark'
-            },
-            {
-              label: 'Video',
-              icon: 'pi pi-fw pi-video'
-            },
+      label: 'Accueil',
+      command: () => {
+        setLocation('/')
+      }
+    },
+    {
+      label: 'Chercher RDV',
+      command: () => {
+        setLocation('/rendezvous')
+      }
+    },
+    {
+      label: 'Forum',
+      command: () => {
+        setLocation('/questions')
+      }
+    },
+  ];
 
-          ]
-        },
-        {
-          label: 'Delete',
-          icon: 'pi pi-fw pi-trash'
-        },
-        {
-          separator: true
-        },
-        {
-          label: 'Export',
-          icon: 'pi pi-fw pi-external-link'
-        }
-      ]
-    }];
-  const itemsEnd = (
+  const end = (
     <div className={"flex flex-row"}>
       <RdvButton />
       <ProfilButton/>
@@ -61,10 +51,10 @@ function App() {
   return (
     <UserProvider>
       <div className="flex flex-column card-container green-container">
-      <Menubar model={items} end={itemsEnd}/>
+      <Menubar model={items} end={end}/>
       <Router>
         <Route path="/" component={Accueil} />
-        <Route path="/questions/" component={QuestionsList} />
+        <Route path="/questions" component={QuestionsList} />
         <Route path="/questions/:id" component={QuestionEtReponses} />
         <Route path="/create/question" component={QuestionForm} />
         <Route path="/create/reponse/:id" component={ReponseForm} />
